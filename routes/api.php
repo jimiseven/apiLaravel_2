@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\InformeController;
 use Illuminate\Http\Request;
@@ -12,3 +13,4 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResource('estudiantes', EstudianteController::class);
 Route::apiResource('informes', InformeController::class);
+Route::apiResource('docentes', DocenteController::class);

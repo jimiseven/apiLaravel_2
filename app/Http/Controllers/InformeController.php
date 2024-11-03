@@ -30,18 +30,19 @@ class InformeController extends Controller
     }
 
     public function update(Request $request, Informe $informe)
-    {
-        $request->validate([
-            'titulo' => 'required',
-            'numero_de_hojas' => 'required|integer',
-            'area' => 'required',
-            'estudiante_id' => 'required|exists:estudiantes,id'
-        ]);
+{
+    $request->validate([
+        'titulo' => 'required',
+        'numero_de_hojas' => 'required|integer',
+        'area' => 'required',
+        'estudiante_id' => 'required|exists:estudiantes,id',
+        'docente_id' => 'nullable|exists:docentes,id' // Nueva validación
+    ]);
 
-        $informe->update($request->all());
+    $informe->update($request->all());
 
-        return $informe;
-    }
+    return $informe;
+}
 
     public function destroy(Informe $informe)
     {
